@@ -25,5 +25,9 @@ public class Command {
             String alienNumberString = StringUtils.join(query, ' ').trim();
             return alienNumberString + " is " + answer;
         }
+
+        public static String howManyQueryFormat(String[] alienNumbers, String arabicNumber) {
+            return null;  //To change body of created methods use File | Settings | File Templates.
+        }
     }
 }

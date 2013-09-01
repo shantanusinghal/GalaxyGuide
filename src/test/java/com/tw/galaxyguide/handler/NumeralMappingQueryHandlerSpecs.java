@@ -1,8 +1,6 @@
 package com.tw.galaxyguide.handler;
 
-import com.tw.galaxyguide.handler.NumeralMappingQueryHandler;
 import com.tw.galaxyguide.io.Interpreter;
-import com.tw.galaxyguide.io.Query;
 import com.tw.galaxyguide.mapping.NumberMapping;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +29,7 @@ public class NumeralMappingQueryHandlerSpecs {
         String input = "how much is glob glob ?";
             //Expectations
             Query mockQuery = mock(Query.class);
-            when(mockInterpreter.getRequestObjectFrom(input)).thenReturn(mockQuery);
+            when(mockInterpreter.getRequestObject(input)).thenReturn(mockQuery);
             when(mockQuery.getNumber()).thenReturn(new String[]{"glob", "glob"});
             when(mockNumberMapping.getRomanOf("glob")).thenReturn("I");
 

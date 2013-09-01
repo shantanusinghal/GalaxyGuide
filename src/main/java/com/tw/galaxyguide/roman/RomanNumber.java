@@ -9,4 +9,9 @@ public class RomanNumber {
     public int toArabic() {
         return 2;
     }
+
+    @Override
+    public String toString(){
+        return "2";
+    }
 }

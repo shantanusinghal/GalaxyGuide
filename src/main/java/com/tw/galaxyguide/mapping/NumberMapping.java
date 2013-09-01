@@ -17,7 +17,7 @@ public class NumberMapping {
         numberMapping.put(key, RomanNumber.valueOf(value));
     }
 
-    public String getRomanOf(String alienNumber) {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+    public RomanNumber getRomanOf(String alienNumber) {
+        return null;
     }
 }

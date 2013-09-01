@@ -1,4 +1,4 @@
-package com.tw.galaxyguide.handler;
+package com.tw.galaxyguide.exception;
 
 /**
  * Created with IntelliJ IDEA.

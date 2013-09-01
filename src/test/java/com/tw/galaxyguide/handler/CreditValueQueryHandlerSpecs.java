@@ -4,7 +4,7 @@ package com.tw.galaxyguide.handler;
  * Created with IntelliJ IDEA.
  * User: Shantanu
  * Date: 9/1/13
- * Time: 9:40 AM
+ * Time: 3:42 PM
  */
-public class HandlerNotFoundException extends HandlerException {
+public class CreditValueQueryHandlerSpecs {
 }

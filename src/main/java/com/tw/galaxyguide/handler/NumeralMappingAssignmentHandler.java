@@ -1,7 +1,7 @@
 package com.tw.galaxyguide.handler;
 
-import com.tw.galaxyguide.io.Assignment;
-import com.tw.galaxyguide.io.Interpreter;
+import com.tw.galaxyguide.request.NumeralMappingAssignmentRequest;
+import com.tw.galaxyguide.request.Request;
 import com.tw.galaxyguide.mapping.NumberMapping;
 
 import static com.tw.galaxyguide.io.Command.Type;
@@ -9,11 +9,9 @@ import static com.tw.galaxyguide.io.Command.Response;
 
 public class NumeralMappingAssignmentHandler implements Handler {
 
-    private Interpreter interpreter;
     private NumberMapping numberMapping;
 
-    public NumeralMappingAssignmentHandler(Interpreter interpreter, NumberMapping numberMapping) {
-        this.interpreter = interpreter;
+    public NumeralMappingAssignmentHandler(NumberMapping numberMapping) {
         this.numberMapping = numberMapping;
     }
 
@@ -23,20 +21,11 @@ public class NumeralMappingAssignmentHandler implements Handler {
     }
 
     @Override
-    public String process(String input) {
-        Assignment assignment = interpreter.getAssignmentObjectFrom(input);
-        String key = getAlienNumberFrom(assignment);
-        String value = getRomanNumberFrom(assignment);
+    public <T extends Request> String process(T requestObj) {
+        NumeralMappingAssignmentRequest request = (NumeralMappingAssignmentRequest) requestObj;
+        String key = request.getAlienNumber();
+        String value = request.getRomanNumber();
         numberMapping.add(key, value);
         return Response.SUCCESS;
     }
-
-    private String getAlienNumberFrom(Assignment request) {
-        return request.getLhs()[0];
-    }
-
-    private String getRomanNumberFrom(Assignment request) {
-        return request.getRhs()[0];
-    }
-
 }

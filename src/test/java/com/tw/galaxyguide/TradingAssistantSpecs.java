@@ -2,8 +2,9 @@ package com.tw.galaxyguide;
 
 import com.tw.galaxyguide.handler.Handler;
 import com.tw.galaxyguide.handler.HandlerFactory;
-import com.tw.galaxyguide.handler.HandlerNotFoundException;
+import com.tw.galaxyguide.exception.HandlerNotFoundException;
 import com.tw.galaxyguide.io.Interpreter;
+import com.tw.galaxyguide.request.Request;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,10 +33,12 @@ public class TradingAssistantSpecs {
         String input = "glob is I";
         String expectedOutput = "Cool! I learnt a new numeral";
         Handler mockHandler = mock(Handler.class);
-            //Expectations
-            when(mockInterpreter.getTypeOf(input)).thenReturn(Type.Assignment.NUMERAL_MAPPING);
+        Request mockRequest = mock(Request.class);
+        //Expectations
+            when(mockInterpreter.getRequestObjectFrom(input)).thenReturn(mockRequest);
+            when(mockRequest.getType()).thenReturn(Type.Assignment.NUMERAL_MAPPING);
             when(mockHandlerFactory.handlerFor(Type.Assignment.NUMERAL_MAPPING)).thenReturn(mockHandler);
-            when(mockHandler.process(input)).thenReturn(expectedOutput);
+            when(mockHandler.process(mockRequest)).thenReturn(expectedOutput);
 
         //when
         String actualOutput= tradingAssistant.process(input);

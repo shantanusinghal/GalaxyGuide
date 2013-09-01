@@ -1,10 +1,10 @@
 package com.tw.galaxyguide.handler;
 
-import com.tw.galaxyguide.handler.NumeralMappingAssignmentHandler;
-import com.tw.galaxyguide.io.Assignment;
 import com.tw.galaxyguide.io.Command;
 import com.tw.galaxyguide.io.Interpreter;
 import com.tw.galaxyguide.mapping.NumberMapping;
+import com.tw.galaxyguide.request.NumeralMappingAssignmentRequest;
+import com.tw.galaxyguide.request.Request;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,17 +14,15 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class NumeralMappingHandlerSpecs {
+public class NumeralMappingAssignmentHandlerSpecs {
 
-    Interpreter mockInterpreter;
     NumberMapping numberMapping;
     NumeralMappingAssignmentHandler numeralMappingAssignmentHandler;
 
     @Before
     public void setUp() throws Exception {
-        mockInterpreter = mock(Interpreter.class);
         numberMapping = mock(NumberMapping.class);
-        numeralMappingAssignmentHandler = new NumeralMappingAssignmentHandler(mockInterpreter, numberMapping);
+        numeralMappingAssignmentHandler = new NumeralMappingAssignmentHandler(numberMapping);
     }
 
     @Test
@@ -32,15 +30,13 @@ public class NumeralMappingHandlerSpecs {
         //Given
         String romanI = "I";
         String glob = "glob";
-        String input = glob + " is " + romanI;
-        Assignment mockAssignment = mock(Assignment.class);
+        NumeralMappingAssignmentRequest mockRequest = mock(NumeralMappingAssignmentRequest.class);
             //Expectations
-            when(mockInterpreter.getAssignmentObjectFrom(input)).thenReturn(mockAssignment);
-            when(mockAssignment.getLhs()).thenReturn(new String[]{glob});
-            when(mockAssignment.getRhs()).thenReturn(new String[]{romanI});
+            when(mockRequest.getAlienNumber()).thenReturn(glob);
+            when(mockRequest.getRomanNumber()).thenReturn(romanI);
 
         //When
-        String actualOutput = numeralMappingAssignmentHandler.process(input);
+        String actualOutput = numeralMappingAssignmentHandler.process(mockRequest);
 
         //Then
         verify(numberMapping).add(glob, romanI);

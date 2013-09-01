@@ -1,6 +1,6 @@
 package com.tw.galaxyguide.handler;
 
-import com.tw.galaxyguide.handler.*;
+import com.tw.galaxyguide.exception.HandlerNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 

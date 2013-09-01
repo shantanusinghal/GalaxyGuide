@@ -1,8 +1,5 @@
 package com.tw.galaxyguide.handler;
 
-import com.tw.galaxyguide.handler.CreditValueAssignmentHandler;
-import com.tw.galaxyguide.handler.NumeralMappingQueryHandler;
-import com.tw.galaxyguide.io.Assignment;
 import com.tw.galaxyguide.io.Command;
 import com.tw.galaxyguide.io.Interpreter;
 import com.tw.galaxyguide.mapping.CurrencyMapping;

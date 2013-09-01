@@ -15,4 +15,8 @@ public class CurrencyMapping {
         currencyMapping.put(key, Integer.valueOf(value));
     }
 
+    public Integer getValueOf(String alienNumber) {
+        return currencyMapping.get(alienNumber);
+    }
+
 }

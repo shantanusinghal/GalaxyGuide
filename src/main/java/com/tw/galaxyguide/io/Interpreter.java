@@ -1,12 +1,7 @@
 package com.tw.galaxyguide.io;
 
-import static com.tw.galaxyguide.io.Command.Type;
+import com.tw.galaxyguide.request.Request;
 
 public interface Interpreter {
-
-    public Type getTypeOf(String input);
-
-    Query getRequestObjectFrom(String input);
-
-    Assignment getAssignmentObjectFrom(String input);
+    Request getRequestObjectFrom(String input);
 }
