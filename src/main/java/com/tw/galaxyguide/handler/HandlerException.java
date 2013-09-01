@@ -1,4 +1,4 @@
-package com.tw.galaxyguide;
+package com.tw.galaxyguide.handler;
 
 /**
  * Created with IntelliJ IDEA.

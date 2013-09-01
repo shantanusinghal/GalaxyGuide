@@ -1,0 +1,7 @@
+# IntelliJ Files
+.idea/
+MerchantsGuideToTheGalaxy.iml
+
+# Output Directories
+target/
+

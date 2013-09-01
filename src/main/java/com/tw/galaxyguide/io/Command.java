@@ -1,11 +1,7 @@
-package com.tw.galaxyguide;
+package com.tw.galaxyguide.io;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Shantanu
- * Date: 9/1/13
- * Time: 9:25 AM
- */
+import org.apache.commons.lang3.StringUtils;
+
 public class Command {
 
     public interface Type {
@@ -24,5 +20,10 @@ public class Command {
     public static class Response {
         public static final String ERROR = "I have no idea what you are talking about";
         public static final String SUCCESS = "Got it!";
+
+        public static String howMuchQueryFormat(String[] query, String answer) {
+            String alienNumberString = StringUtils.join(query, ' ').trim();
+            return alienNumberString + " is " + answer;
+        }
     }
 }

@@ -1,9 +1,9 @@
-package com.tw.galaxyguide;
+package com.tw.galaxyguide.handler;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.tw.galaxyguide.Command.Type;
+import static com.tw.galaxyguide.io.Command.Type;
 
 public class HandlerFactory {
 

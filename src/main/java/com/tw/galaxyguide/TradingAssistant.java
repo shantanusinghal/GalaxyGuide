@@ -1,7 +1,12 @@
 package com.tw.galaxyguide;
 
-import static com.tw.galaxyguide.Command.Type;
-import static com.tw.galaxyguide.Command.Response;
+import com.tw.galaxyguide.handler.Handler;
+import com.tw.galaxyguide.handler.HandlerException;
+import com.tw.galaxyguide.handler.HandlerFactory;
+import com.tw.galaxyguide.io.Interpreter;
+
+import static com.tw.galaxyguide.io.Command.Type;
+import static com.tw.galaxyguide.io.Command.Response;
 
 public class TradingAssistant {
 
